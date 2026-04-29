@@ -160,7 +160,7 @@ const PhotoDetailPage = async ({ params }) => {
                 Prompt Information
               </h4>
               <p className="text-gray-200 italic font-medium leading-relaxed">
-                "{photo.prompt}"
+                {photo.prompt}
               </p>
               <Button
                 size="sm"
