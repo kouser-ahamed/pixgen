@@ -1,4 +1,4 @@
-import { Outfit} from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -14,16 +14,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      className={`${OutfitFont.className} h-full antialiased`}
-    >
+    <html lang="en" className={`${OutfitFont.className} h-full antialiased`}>
       <body>
         <Navbar />
-        {children}
+        <main className="max-w-7xl mx-auto">{children}</main>
         <Footer />
-        
-        </body>
+      </body>
     </html>
   );
 }
