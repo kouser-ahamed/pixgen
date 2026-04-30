@@ -32,6 +32,9 @@ export default function SignInPage() {
     await authClient.signIn.social({
         provider: "google",
     })
+    if(!error) {
+        router.push("/");
+    }
     
   };
 
