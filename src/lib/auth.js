@@ -3,6 +3,13 @@ import { MongoClient } from "mongodb";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
 
 const client = new MongoClient(process.env.MONGODB_URI);
+
+if (!global._mongoClientPromise) {
+  global._mongoClientPromise = client.connect();
+}
+
+await global._mongoClientPromise;
+
 const db = client.db("pixgen");
 
 export const auth = betterAuth({
