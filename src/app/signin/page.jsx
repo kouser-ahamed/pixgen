@@ -18,24 +18,18 @@ export default function SignInPage() {
     const { data, error } = await authClient.signIn.email({
       email,
       password,
+      callbackURL: "/"
     });
 
     console.log({ data, error });
 
-    if (!error) {
-      router.push("/");
-    }
   };
 
-  const onGoogleSignIn = async () => {
+  const handleGoogleSignIn = async () => {
 
     await authClient.signIn.social({
         provider: "google",
     })
-    if(!error) {
-        router.push("/");
-    }
-    
   };
 
   return (
@@ -61,7 +55,7 @@ export default function SignInPage() {
         <p className="text-center">Or</p>
 
         <Button
-          onClick={onGoogleSignIn}
+          onClick={handleGoogleSignIn}
           className="w-full flex items-center justify-center gap-2 
           bg-white text-gray-700 
           border border-gray-200 
