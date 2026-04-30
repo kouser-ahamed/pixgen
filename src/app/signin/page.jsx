@@ -8,7 +8,6 @@ import { GrGoogle } from "react-icons/gr";
 export default function SignInPage() {
   const router = useRouter();
 
-
   const onSubmit = async (e) => {
     e.preventDefault();
 
@@ -18,18 +17,16 @@ export default function SignInPage() {
     const { data, error } = await authClient.signIn.email({
       email,
       password,
-      callbackURL: "/"
+      callbackURL: "/",
     });
 
     console.log({ data, error });
-
   };
 
   const handleGoogleSignIn = async () => {
-
     await authClient.signIn.social({
-        provider: "google",
-    })
+      provider: "google",
+    });
   };
 
   return (
